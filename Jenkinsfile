@@ -3,15 +3,17 @@ pipeline {
     tools {
     terraform 'terraform'
 }
+    
+     parameters {
+        string(name: 'resource_group_name', defaultValue: 'default-nikhil-rg', description: 'Enter Resource group name')
+        booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after generating plan?')
+        booleanParam(name: 'destroy', defaultValue: false, description: 'Destroy Terraform build?')
+
+    }
 
     stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello World'
-            }
-        }
-        
-        stage('Git Checkout') {
+      
+       stage('Git Checkout') {
             steps {
                git branch: 'main', credentialsId: 'nikhil-github', url: 'https://github.com/nikhilpatne/azure-terraform-jenkins.git'
             }
