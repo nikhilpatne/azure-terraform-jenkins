@@ -5,7 +5,7 @@ pipeline {
 }
     
      parameters {
-        string(name: 'resource_group_name', defaultValue: 'default-nikhil-rg', description: 'Enter Resource group name')
+        string(name: 'resource_group_name', defaultValue: '', description: 'Enter Resource group name')
 
     }
 
