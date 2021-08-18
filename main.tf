@@ -19,11 +19,16 @@ tenant_id       =   var.tenant_id
 }
 
 
-resource "azurerm_resource_group" "example" {
-  name     = "nikhilrgg"
-  location = "eastus"
+variable "resource_group_name" {
+    description =   "Resource_group name"
+    type        =   string
 }
 
+
+resource "azurerm_resource_group" "example" {
+  name     = var.resource_group_name
+  location = "eastus"
+}
 
 
 variable "client_id" {
